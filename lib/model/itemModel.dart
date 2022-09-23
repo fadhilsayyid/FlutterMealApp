@@ -27,8 +27,8 @@ class Meals {
   late String? strCategory;
   late String? strArea;
   late String? strYoutube;
-  // late String strInstructions;
-  // late String strMealThumb;
+  late String? strInstructions;
+  late String strMealThumb;
   late String? strIngredient1;
   late String? strIngredient2;
   late String? strIngredient3;
@@ -77,8 +77,8 @@ class Meals {
       this.strCategory,
       this.strArea,
       this.strYoutube,
-      // required this.strInstructions,
-      // required this.strMealThumb,
+      this.strInstructions,
+      required this.strMealThumb,
       this.strIngredient1,
       this.strIngredient2,
       this.strIngredient3,
@@ -127,8 +127,8 @@ class Meals {
     strCategory = json['strCategory'];
     strArea = json['strArea'];
     strYoutube = json['strYoutube'];
-    // strInstructions = json['strInstructions'];
-    // strMealThumb = json['strMealThumb'];
+    strInstructions = json['strInstructions'];
+    strMealThumb = json['strMealThumb'];
     strIngredient1 = json['strIngredient1'];
     strIngredient2 = json['strIngredient2'];
     strIngredient3 = json['strIngredient3'];
@@ -179,8 +179,8 @@ class Meals {
     data['strCategory'] = this.strCategory;
     data['strArea'] = this.strArea;
     data['strYoutube'] = this.strYoutube;
-    // data['strInstructions'] = this.strInstructions;
-    // data['strMealThumb'] = this.strMealThumb;
+    data['strInstructions'] = this.strInstructions;
+    data['strMealThumb'] = this.strMealThumb;
     data['strIngredient1'] = this.strIngredient1;
     data['strIngredient2'] = this.strIngredient2;
     data['strIngredient3'] = this.strIngredient3;
