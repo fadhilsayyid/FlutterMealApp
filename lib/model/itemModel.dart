@@ -22,13 +22,13 @@ class ItemModel {
 }
 
 class Meals {
-  late String idMeal;
-  late String strMeal;
+  late String? idMeal;
+  late String? strMeal;
   late String? strCategory;
   late String? strArea;
   late String? strYoutube;
   late String? strInstructions;
-  late String strMealThumb;
+  late String? strMealThumb;
   late String? strIngredient1;
   late String? strIngredient2;
   late String? strIngredient3;
@@ -72,13 +72,13 @@ class Meals {
   late String? type;
 
   Meals(
-      {required this.idMeal,
-      required this.strMeal,
+      {this.idMeal,
+      this.strMeal,
       this.strCategory,
       this.strArea,
       this.strYoutube,
       this.strInstructions,
-      required this.strMealThumb,
+      this.strMealThumb,
       this.strIngredient1,
       this.strIngredient2,
       this.strIngredient3,
