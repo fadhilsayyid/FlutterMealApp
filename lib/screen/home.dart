@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screen/dessertScreen.dart';
 import 'package:meals_app/screen/favorite/favoriteScreen.dart';
-import 'package:meals_app/screen/seafoodScreen.dart';
+import 'package:meals_app/screen/breakfastScreen.dart';
 import 'package:meals_app/flavor/config.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,9 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _setPage() {
     if (_index == 0) {
-      return DessertScreen();
+      return BreakfastScreen();
     } else if (_index == 1) {
-      return SeafoodScreen();
+      return DessertScreen();
     } else {
       return FavoriteScreen();
     }
@@ -38,12 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _index,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.cake),
-            label: 'Dessert',
+            icon: Icon(Icons.food_bank),
+            label: 'Breakfast',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.food_bank),
-            label: 'Seafood',
+            icon: Icon(Icons.cake),
+            label: 'Dessert',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),

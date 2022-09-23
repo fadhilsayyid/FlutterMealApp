@@ -35,15 +35,14 @@ Widget buildList(AsyncSnapshot<ItemModel> snapshot, String type) =>
                             DetailScreen(
                           idMeal: snapshot.data!.meals[index].idMeal,
                           strMeal: snapshot.data!.meals[index].strMeal,
-                          // strMealThumb:
-                          //     snapshot.data!.meals[index].strMealThumb,
+                          strMealThumb:
+                              snapshot.data!.meals[index].strMealThumb,
                           type: type,
                         ),
                       ));
                 },
-
-                // photo: snapshot.data!.meals[index].strMealThumb,
-                width: 100, photo: '',
+                photo: snapshot.data!.meals[index].strMealThumb,
+                width: 100,
               ),
             ),
           ),
