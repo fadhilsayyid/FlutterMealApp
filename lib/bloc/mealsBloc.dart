@@ -8,13 +8,13 @@ class MealsBloc {
 
   Stream<ItemModel> get allMeals => _mealsFetcher.stream;
 
-  fetchDessert() async {
-    ItemModel itemModel = await _repository.fetchAllMeals("Dessert");
+  fetchBreakfast() async {
+    ItemModel itemModel = await _repository.fetchAllMeals("Breakfast");
     _mealsFetcher.sink.add(itemModel);
   }
 
-  fetchSeafood() async {
-    ItemModel itemModel = await _repository.fetchAllMeals("Seafood");
+  fetchDessert() async {
+    ItemModel itemModel = await _repository.fetchAllMeals("Dessert");
     _mealsFetcher.sink.add(itemModel);
   }
 
