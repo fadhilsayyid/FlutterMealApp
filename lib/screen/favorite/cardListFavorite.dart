@@ -32,13 +32,13 @@ Widget buildListFavorite(List<Meals> data, String type) => GridView.builder(
                             DetailScreen(
                           idMeal: data[index].idMeal,
                           strMeal: data[index].strMeal,
-                          // strMealThumb: data[index].strMealThumb,
+                          strMealThumb: data[index].strMealThumb,
                           type: type,
                         ),
                       ));
                 },
-                // photo: data[index].strMealThumb,
-                width: 100, photo: '',
+                photo: data[index].strMealThumb,
+                width: 100,
               ),
             ),
           ),

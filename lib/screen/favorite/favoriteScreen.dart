@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screen/favorite/dessertFavoriteScreen.dart';
-import 'package:meals_app/screen/favorite/seafoodFavoriteScreen.dart';
+import 'package:meals_app/screen/favorite/breakfastFavoriteScreen.dart';
 
 class FavoriteScreen extends StatefulWidget {
   @override
@@ -20,15 +20,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white70,
             indicatorColor: Colors.blueGrey,
-            tabs: [
-              Tab(text: "Dessert"),
-              Tab(text: "Seafood"),
-            ],
+            tabs: [Tab(text: "Breakfast"), Tab(text: "Dessert")],
           ),
         ),
         body: TabBarView(children: <Widget>[
-          DessertFavoriteScreen(),
-          SeafoodFavoriteScreen()
+          BreakfastFavoriteScreen(),
+          DessertFavoriteScreen()
         ]),
       ),
     );
