@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screen/dessertScreen.dart';
 import 'package:meals_app/screen/favorite/favoriteScreen.dart';
 import 'package:meals_app/screen/seafoodScreen.dart';
-import 'package:meals_app/screen/searchScreen.dart';
 import 'package:meals_app/flavor/config.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,15 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         title: Text(Config.appString),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SearchScreen()));
-            },
-          )
-        ],
       ),
       body: _setPage(),
       bottomNavigationBar: BottomNavigationBar(
@@ -52,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Dessert',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
+            icon: Icon(Icons.food_bank),
             label: 'Seafood',
           ),
           BottomNavigationBarItem(
