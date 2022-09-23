@@ -203,7 +203,7 @@ class _DetailScreenState extends State<DetailScreen> {
           // showToast(context, "Remove from Favorite", duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
         },
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(16.0),
           child: Icon(
             Icons.favorite,
             color: Colors.red,

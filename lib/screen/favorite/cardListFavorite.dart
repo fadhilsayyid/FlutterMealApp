@@ -20,7 +20,7 @@ Widget buildListFavorite(List<Meals> data, String type) => GridView.builder(
             margin: EdgeInsets.all(10),
             child: GridTile(
               child: PhotoHero(
-                tag: data[index].strMeal,
+                tag: data[index].strMeal!,
                 onTap: () {
                   Navigator.push(
                       context,
@@ -30,14 +30,14 @@ Widget buildListFavorite(List<Meals> data, String type) => GridView.builder(
                                 Animation<double> animation,
                                 Animation<double> secondaryAnimation) =>
                             DetailScreen(
-                          idMeal: data[index].idMeal,
-                          strMeal: data[index].strMeal,
-                          strMealThumb: data[index].strMealThumb,
+                          idMeal: data[index].idMeal!,
+                          strMeal: data[index].strMeal!,
+                          strMealThumb: data[index].strMealThumb!,
                           type: type,
                         ),
                       ));
                 },
-                photo: data[index].strMealThumb,
+                photo: data[index].strMealThumb!,
                 width: 100,
               ),
             ),

@@ -13,7 +13,7 @@ Widget buildList(AsyncSnapshot<ItemModel> snapshot, String type) =>
         return GestureDetector(
           child: Card(
             color: Colors.white60,
-            key: Key("meals_" + snapshot.data!.meals[index].idMeal),
+            key: Key("meals_" + snapshot.data!.meals[index].idMeal!),
             elevation: 5.0,
             semanticContainer: true,
             clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -23,7 +23,7 @@ Widget buildList(AsyncSnapshot<ItemModel> snapshot, String type) =>
             margin: EdgeInsets.all(10),
             child: GridTile(
               child: PhotoHero(
-                tag: snapshot.data!.meals[index].strMeal,
+                tag: snapshot.data!.meals[index].strMeal!,
                 onTap: () {
                   Navigator.push(
                       context,
@@ -33,15 +33,15 @@ Widget buildList(AsyncSnapshot<ItemModel> snapshot, String type) =>
                                 Animation<double> animation,
                                 Animation<double> secondaryAnimation) =>
                             DetailScreen(
-                          idMeal: snapshot.data!.meals[index].idMeal,
-                          strMeal: snapshot.data!.meals[index].strMeal,
+                          idMeal: snapshot.data!.meals[index].idMeal!,
+                          strMeal: snapshot.data!.meals[index].strMeal!,
                           strMealThumb:
-                              snapshot.data!.meals[index].strMealThumb,
+                              snapshot.data!.meals[index].strMealThumb!,
                           type: type,
                         ),
                       ));
                 },
-                photo: snapshot.data!.meals[index].strMealThumb,
+                photo: snapshot.data!.meals[index].strMealThumb!,
                 width: 100,
               ),
             ),
