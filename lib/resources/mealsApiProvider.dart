@@ -27,4 +27,6 @@ class MealsApiProvider {
       throw Exception('Failed to load detail meals');
     }
   }
+
+  searchMeals(String s) {}
 }
