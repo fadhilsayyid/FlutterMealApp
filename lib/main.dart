@@ -7,7 +7,7 @@ class MyApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'The Meal DB',
+        title: 'Meal',
         theme: ThemeData(
             textSelectionTheme:
                 TextSelectionThemeData(cursorColor: Colors.white)),
