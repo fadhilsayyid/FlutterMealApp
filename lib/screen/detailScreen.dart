@@ -6,14 +6,14 @@ import 'package:meals_app/resources/favoriteLocalProvider.dart';
 class DetailScreen extends StatefulWidget {
   final String idMeal;
   final String strMeal;
-  final String? strMealThumb;
+  final String strMealThumb;
   final String? type;
 
   const DetailScreen(
       {Key? key,
       required this.idMeal,
       required this.strMeal,
-      this.strMealThumb,
+      required this.strMealThumb,
       this.type})
       : super(key: key);
 
@@ -54,7 +54,8 @@ class _DetailScreenState extends State<DetailScreen> {
               pinned: true,
               leading: IconButton(
                 key: Key('back'),
-                icon: Icon(Icons.arrow_back),
+                color: Colors.white,
+                icon: Icon(Icons.arrow_back_ios_new),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -66,15 +67,16 @@ class _DetailScreenState extends State<DetailScreen> {
                   widget.strMeal,
                   style: TextStyle(
                     color: Colors.white,
+                    backgroundColor: Colors.black54,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
                   ),
                 ),
-                // background: Hero(
-                //   tag: widget.strMeal,
-                //   child: Image.network(widget.strMealThumb,
-                //       width: double.infinity, fit: BoxFit.cover),
-                // ),
+                background: Hero(
+                  tag: widget.strMeal,
+                  child: Image.network(widget.strMealThumb,
+                      width: double.infinity, fit: BoxFit.cover),
+                ),
               ),
             ),
           ];
@@ -89,8 +91,14 @@ class _DetailScreenState extends State<DetailScreen> {
         stream: bloc.detailMeals,
         builder: (context, AsyncSnapshot<ItemModel> snapshot) {
           if (snapshot.hasData) {
-            itemModel = snapshot.data!;
-            return _showListDetail(itemModel);
+            // itemModel = snapshot.data!;
+            return _showListDetail(
+                snapshot.data!.meals[0].strIngredient1,
+                snapshot.data!.meals[0].strIngredient2,
+                snapshot.data!.meals[0].strIngredient3,
+                snapshot.data!.meals[0].strIngredient4,
+                snapshot.data!.meals[0].strIngredient5,
+                snapshot.data!.meals[0].strInstructions);
           } else if (snapshot.hasError) {
             return Text(snapshot.error.toString());
           }
@@ -102,7 +110,13 @@ class _DetailScreenState extends State<DetailScreen> {
         });
   }
 
-  Widget _showListDetail(ItemModel itemModel) {
+  Widget _showListDetail(
+      String? ingredient1,
+      String? ingredient2,
+      String? ingredient3,
+      String? ingredient4,
+      String? ingredient5,
+      String? desc) {
     return Container(
       color: Color.fromRGBO(58, 66, 86, 1.0),
       padding: EdgeInsets.all(16.0),
@@ -111,6 +125,39 @@ class _DetailScreenState extends State<DetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
+              padding: EdgeInsets.all(5.0),
+              child: Column(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Ingredient :",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      ingredient1! +
+                          ', ' +
+                          ingredient2! +
+                          ', ' +
+                          ingredient3! +
+                          ', ' +
+                          ingredient4! +
+                          ', ' +
+                          ingredient5!,
+                      style: TextStyle(
+                          fontStyle: FontStyle.italic, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
               color: Color.fromRGBO(58, 66, 86, 1.0),
               padding: EdgeInsets.all(4.0),
               child: Column(
@@ -118,20 +165,21 @@ class _DetailScreenState extends State<DetailScreen> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Deskripsi :",
+                      "Instruction :",
                       style: TextStyle(
                           color: Color.fromARGB(209, 255, 255, 255),
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  // Align(
-                  //   alignment: Alignment.centerLeft,
-                  //   child: Text(
-                  //     itemModel.meals[0].strInstructions,
-                  //     style: TextStyle(color: Colors.black),
-                  //   ),
-                  // ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      desc!,
+                      style:
+                          TextStyle(color: Color.fromARGB(209, 255, 255, 255)),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -155,8 +203,11 @@ class _DetailScreenState extends State<DetailScreen> {
           // showToast(context, "Remove from Favorite", duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
         },
         child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Icon(Icons.favorite),
+          padding: EdgeInsets.all(20.0),
+          child: Icon(
+            Icons.favorite,
+            color: Colors.red,
+          ),
         ),
       );
     } else {
@@ -165,7 +216,7 @@ class _DetailScreenState extends State<DetailScreen> {
           Meals favoriteFood = Meals(
               idMeal: widget.idMeal,
               strMeal: widget.strMeal,
-              // strMealThumb: widget.strMealThumb,
+              strMealThumb: widget.strMealThumb,
               type: widget.type,
               strArea: '',
               strCategory: '',
@@ -191,7 +242,7 @@ class _DetailScreenState extends State<DetailScreen> {
               strIngredient9: '',
               strMeasure1: '',
               strMeasure10: '',
-              // strInstructions: '',
+              strInstructions: '',
               strMeasure11: '',
               strMeasure12: '',
               strMeasure13: '',
